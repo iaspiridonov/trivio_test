@@ -1,0 +1,36 @@
+<?php
+/**
+ * @var Laminas\View\Renderer\PhpRenderer $this
+ * @var \User\Model\User[] $users
+ */
+$title = $this->translate('users');
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('user', ['action' => 'add']) ?>">+ <?= $this->translate('add_new_user') ?></a>
+</p>
+
+<table class="table">
+    <tr>
+        <th><?= $this->translate('first_name') ?></th>
+        <th><?= $this->translate('last_name') ?></th>
+        <th><?= $this->translate('patronymic') ?></th>
+        <th><?= $this->translate('birth_date') ?></th>
+        <th><?= $this->translate('native_city') ?></th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($users as $user) : ?>
+        <tr>
+            <td><?= $this->escapeHtml($user->firstName) ?></td>
+            <td><?= $this->escapeHtml($user->lastName) ?></td>
+            <td><?= $this->escapeHtml($user->patronymic) ?></td>
+            <td><?= $this->escapeHtml($user->birthDate) ?></td>
+            <td><?= $this->escapeHtml($user->cityName) ?></td>
+            <td>
+                <a href="<?= $this->url('user', ['action' => 'edit', 'id' => $user->id]) ?>"><?= $this->translate('edit') ?></a>
+                <a href="<?= $this->url('user', ['action' => 'delete', 'id' => $user->id]) ?>"><?= $this->translate('delete') ?></a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>

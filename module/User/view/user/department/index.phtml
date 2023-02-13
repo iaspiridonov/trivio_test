@@ -1,0 +1,28 @@
+<?php
+/**
+ * @var Laminas\View\Renderer\PhpRenderer $this
+ * @var \User\Model\Department[] $departments
+ */
+$title = 'Departments';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('department', ['action' => 'add']) ?>">+ <?= $this->translate('Add user to department') ?></a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Department name</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($departments as $department) : ?>
+        <tr>
+            <td><?= $this->escapeHtml($department->departmentName) ?></td>
+            <td>
+                <a href="<?= $this->url('department', ['action' => 'edit', 'id' => $department->id]) ?>">Edit</a>
+                <a href="<?= $this->url('department', ['action' => 'delete', 'id' => $department->id]) ?>">Delete</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>

@@ -13,5 +13,18 @@
  */
 
 return [
-    // ...
+    'db' => [
+        'driver' => 'Pdo',
+        'dsn'    => sprintf('sqlite:%s/data/trivio_db.db', realpath(getcwd())),
+    ],
+    'translator' => [
+        'locale' => 'ru',
+        'translation_file_patterns' => [
+            [
+                'type'     => \Laminas\I18n\Translator\Loader\PhpArray::class,
+                'base_dir' => getcwd() .  '/data/language',
+                'pattern'  => '%s.php',
+            ],
+        ],
+    ],
 ];

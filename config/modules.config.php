@@ -25,4 +25,5 @@ return [
     'Laminas\Validator',
     'Laminas\Diactoros',
     'Application',
+    'User',
 ];

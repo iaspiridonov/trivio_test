@@ -20,6 +20,17 @@ return [
                         'action'     => 'index',
                     ],
                 ],
+//                'options' => [
+//                    'route'    => '/[:lang]',
+//                    'constraints' => [
+//                        'lang' => '[a-z]{2}'
+//                    ],
+//                    'defaults' => [
+//                        'lang' => 'ru',
+//                        'controller' => Controller\IndexController::class,
+//                        'action'     => 'index',
+//                    ],
+//                ],
             ],
             'application' => [
                 'type'    => Segment::class,
